@@ -6,16 +6,17 @@ import { PageNotFound } from "@/common/components"
 export const Path = {
   Main: "/",
   Login: "/login",
-  NotFound: "*",
+  NotFound: "/*",
 } as const
 
-export const Routing = () => (
-  <Routes>
-    {/*2 способа одинаково достучаться до коренного слеша, через индекс и через Path*/}
-    {/*<Route index element={<Main />} />*/}
-    <Route path={Path.Main} element={<Main />} />
-
-    <Route path={Path.Login} element={<Login />} />
-    <Route path={Path.NotFound} element={<PageNotFound />} />
-  </Routes>
-)
+export const Routing = () => {
+  return (
+    <Routes>
+      {/*2 способа одинаково достучаться до коренного слеша, через индекс и через Path*/}
+      {/*<Route index element={<Main />} />*/}
+      <Route path={Path.Main} element={<Main />} />
+      <Route path={Path.Login} element={<Login />} />
+      <Route path={Path.NotFound} element={<PageNotFound />} />
+    </Routes>
+  )
+}
