@@ -9,7 +9,8 @@ export const loginSchema = z.object({
     .regex(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/),
   password: z
     .string()
-    .min(10, { message: "мин кол-во символов: 10" })
+    .nonempty("Password is required")
+    .min(3, { message: "Password must be at least 3 characters long" })
     .regex(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{10,}$/, { message: "пароль не соответствует всем требованиям" }),
   rememberMe: z.boolean(),
 })
