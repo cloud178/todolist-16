@@ -1,8 +1,6 @@
 import { z } from "zod"
 import { TaskPriority, TaskStatus } from "@/common/enums"
 
-export type DomainTask = z.infer<typeof domainTaskSchema>
-
 export const domainTaskSchema = z.object({
   description: z.string().nullable(),
   startDate: z.string().nullable(),
@@ -15,6 +13,8 @@ export const domainTaskSchema = z.object({
   order: z.number(),
   addedDate: z.string().datetime({ local: true }),
 })
+
+export type DomainTask = z.infer<typeof domainTaskSchema>
 
 export type GetTasksResponse = {
   error: Nullable

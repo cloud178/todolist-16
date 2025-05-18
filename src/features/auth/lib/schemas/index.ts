@@ -1,1 +1,1 @@
-export { loginSchema, type LoginForm } from "./loginSchema"
+export { loginSchema, type Inputs } from "./loginSchema"
